@@ -48,7 +48,10 @@ const Hero = () => {
   ];
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden"
+    >
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl"></div>
@@ -68,7 +71,7 @@ const Hero = () => {
               </div>
 
               <h1 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
-                Bonjour, je suis{' '}
+                Bonjour, je suis{" "}
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   ABZO
                 </span>
@@ -79,13 +82,14 @@ const Hero = () => {
               </p>
 
               <p className="text-lg text-gray-500 dark:text-gray-400 mb-12 max-w-2xl leading-relaxed">
-                Je crée des applications web modernes et intuitives avec les dernières technologies.
-                Passionné par l'innovation et l'expérience utilisateur exceptionnelle.
+                Je crée des applications web modernes et intuitives avec les
+                dernières technologies. Passionné par l'innovation et
+                l'expérience utilisateur exceptionnelle.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <button
-                  onClick={() => scrollToSection('projects')}
+                  onClick={() => scrollToSection("projects")}
                   className="group relative bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-2xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl overflow-hidden"
                 >
                   <span className="relative z-10">Voir mes projets</span>
@@ -98,7 +102,9 @@ const Hero = () => {
                   rel="noopener noreferrer"
                   className="group relative border-2 border-blue-600 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white px-8 py-4 rounded-2xl text-lg font-semibold transition-all duration-300"
                 >
-                  <span className="relative z-10">💬 Discuter sur WhatsApp</span>
+                  <span className="relative z-10">
+                    💬 Discuter sur WhatsApp
+                  </span>
                 </a>
               </div>
 
@@ -128,17 +134,18 @@ const Hero = () => {
                 <div className="relative w-80 h-80 rounded-3xl overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100 dark:from-gray-800 dark:to-gray-700 p-2">
                   <div className="w-full h-full rounded-2xl overflow-hidden bg-white dark:bg-gray-900">
                     <img
-                      src={process.env.PUBLIC_URL + "/assets/images/AD1.png"}
+                      src={process.env.PUBLIC_URL + "/assets/images/abzo.png"}
                       alt="ABZO - Développeur Full Stack"
                       className="w-full h-full object-cover"
                       onError={(e) => {
-                        console.log('Image failed to load:', e.target.src);
+                        console.log("Image failed to load:", e.target.src);
                         // Fallback to gradient if image fails to load
-                        e.target.style.display = 'none';
-                        e.target.parentElement.innerHTML = '<div class="w-full h-full bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center text-white text-6xl font-bold">AB</div>';
+                        e.target.style.display = "none";
+                        e.target.parentElement.innerHTML =
+                          '<div class="w-full h-full bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center text-white text-6xl font-bold">AB</div>';
                       }}
                       onLoad={(e) => {
-                        console.log('Image loaded successfully:', e.target.src);
+                        console.log("Image loaded successfully:", e.target.src);
                       }}
                     />
                   </div>
@@ -146,14 +153,34 @@ const Hero = () => {
 
                 {/* Floating Elements */}
                 <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center text-white shadow-lg">
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                  <svg
+                    className="w-8 h-8"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                    />
                   </svg>
                 </div>
 
                 <div className="absolute -bottom-4 -left-4 w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center text-white shadow-lg">
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  <svg
+                    className="w-7 h-7"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
                   </svg>
                 </div>
               </div>
@@ -165,11 +192,21 @@ const Hero = () => {
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
         <button
-          onClick={() => scrollToSection('about')}
+          onClick={() => scrollToSection("about")}
           className="text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
           </svg>
         </button>
       </div>
