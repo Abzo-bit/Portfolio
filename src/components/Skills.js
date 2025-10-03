@@ -24,125 +24,114 @@ import {
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState('All');
 
+  const getProgressColor = (level) => {
+    if (level <= 30) return 'bg-red-500';
+    if (level <= 80) return 'bg-yellow-500';
+    return 'bg-green-500';
+  };
+
   const skills = [
     {
       name: 'HTML5',
       level: 95,
       category: 'Frontend',
-      icon: <FaHtml5 className="text-orange-500" />,
-      color: 'from-orange-400 to-red-500'
+      icon: <FaHtml5 className="text-orange-500" />
     },
     {
       name: 'CSS3',
       level: 90,
       category: 'Frontend',
-      icon: <FaCss3Alt className="text-blue-500" />,
-      color: 'from-blue-400 to-blue-600'
+      icon: <FaCss3Alt className="text-blue-500" />
     },
     {
       name: 'JavaScript',
       level: 88,
       category: 'Frontend',
-      icon: <FaJs className="text-yellow-500" />,
-      color: 'from-yellow-400 to-yellow-600'
+      icon: <FaJs className="text-yellow-500" />
     },
     {
       name: 'React',
       level: 85,
       category: 'Frontend',
-      icon: <FaReact className="text-blue-400" />,
-      color: 'from-blue-400 to-cyan-500'
+      icon: <FaReact className="text-blue-400" />
     },
     {
       name: 'Tailwind CSS',
       level: 88,
       category: 'Frontend',
-      icon: <SiTailwindcss className="text-teal-500" />,
-      color: 'from-teal-400 to-blue-500'
+      icon: <SiTailwindcss className="text-teal-500" />
     },
     {
       name: 'Bootstrap',
       level: 85,
       category: 'Frontend',
-      icon: <FaBootstrap className="text-purple-600" />,
-      color: 'from-purple-400 to-purple-600'
+      icon: <FaBootstrap className="text-purple-600" />
     },
     {
       name: 'Node.js',
       level: 82,
       category: 'Backend',
-      icon: <FaNodeJs className="text-green-500" />,
-      color: 'from-green-400 to-green-600'
+      icon: <FaNodeJs className="text-green-500" />
     },
     {
       name: 'Express.js',
       level: 80,
       category: 'Backend',
-      icon: <SiExpress className="text-gray-600" />,
-      color: 'from-gray-400 to-gray-600'
+      icon: <SiExpress className="text-gray-600" />
     },
     {
       name: 'PHP',
       level: 78,
       category: 'Backend',
-      icon: <FaPhp className="text-purple-500" />,
-      color: 'from-purple-400 to-indigo-500'
+      icon: <FaPhp className="text-purple-500" />
     },
     {
       name: 'Laravel',
       level: 75,
       category: 'Backend',
-      icon: <FaLaravel className="text-red-500" />,
-      color: 'from-red-400 to-red-600'
+      icon: <FaLaravel className="text-red-500" />
     },
     {
       name: 'MongoDB',
       level: 80,
       category: 'Database',
-      icon: <SiMongodb className="text-green-600" />,
-      color: 'from-green-500 to-green-700'
+      icon: <SiMongodb className="text-green-600" />
     },
     {
       name: 'PostgreSQL',
       level: 75,
       category: 'Database',
-      icon: <SiPostgresql className="text-blue-600" />,
-      color: 'from-blue-500 to-blue-700'
+      icon: <SiPostgresql className="text-blue-600" />
     },
     {
       name: 'Git',
       level: 90,
       category: 'Tools',
-      icon: <FaGitAlt className="text-orange-600" />,
-      color: 'from-orange-500 to-red-600'
+      icon: <FaGitAlt className="text-orange-600" />
     },
     {
       name: 'Docker',
       level: 75,
       category: 'Tools',
-      icon: <FaDocker className="text-blue-600" />,
-      color: 'from-blue-500 to-blue-700'
+      icon: <FaDocker className="text-blue-600" />
     },
     {
       name: 'Figma',
       level: 80,
       category: 'Design',
-      icon: <FaFigma className="text-purple-500" />,
-      color: 'from-purple-400 to-pink-500'
+      icon: <FaFigma className="text-purple-500" />
     },
     {
       name: 'Trello',
       level: 85,
       category: 'Tools',
-      icon: <FaTrello className="text-blue-500" />,
-      color: 'from-blue-400 to-blue-600'
+      icon: <FaTrello className="text-blue-500" />
     },
     {
       name: 'StarUML',
       level: 78,
       category: 'Design',
-      icon: <FaSitemap className="text-indigo-600" />,
-      color: 'from-indigo-400 to-purple-600'
+      icon: <FaSitemap className="text-indigo-600" />
     }
   ];
 
@@ -153,7 +142,7 @@ const Skills = () => {
     : skills.filter(skill => skill.category === activeCategory);
 
   return (
-    <section id="skills" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
+    <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl"></div>
@@ -163,13 +152,13 @@ const Skills = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium mb-4">
               Mes Compétences
             </span>
 
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
               Technologies &{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="text-blue-600">
                 Outils
               </span>
             </h2>
@@ -188,7 +177,7 @@ const Skills = () => {
                   onClick={() => setActiveCategory(category)}
                   className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
                     activeCategory === category
-                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                      ? 'bg-gradient-to-r from-blue-600  text-white shadow-lg'
                       : 'text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700'
                   }`}
                 >
@@ -220,7 +209,7 @@ const Skills = () => {
                     </div>
                   </div>
                   <div className="text-right">
-                    <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                    <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-200 bg-clip-text text-transparent">
                       {skill.level}%
                     </span>
                   </div>
@@ -230,7 +219,7 @@ const Skills = () => {
                 <div className="relative">
                   <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 overflow-hidden">
                     <div
-                      className={`h-full bg-gradient-to-r ${skill.color} rounded-full relative`}
+                      className={`h-full ${getProgressColor(skill.level)} rounded-full relative`}
                       style={{ width: `${skill.level}%` }}
                     >
                       <div className="absolute inset-0 bg-white/20 rounded-full animate-pulse"></div>
@@ -261,11 +250,11 @@ const Skills = () => {
           </div>
 
           {/* Call to Action */}
-          <div className="text-center mt-16">
-            <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300">
+          {/* <div className="text-center mt-16">
+            <button className="bg-blue-600 hover:bg-blue-800 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300">
               Découvrir mes projets →
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

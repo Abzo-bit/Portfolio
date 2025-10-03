@@ -25,7 +25,7 @@ const About = () => {
             <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium mb-4">
               À propos de moi
             </span>
-
+{/* 
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
               Passionné par le{" "}
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -37,7 +37,7 @@ const About = () => {
               Avec une solide expérience dans le développement web, je maîtrise
               les technologies modernes pour créer des applications performantes
               et intuitives.
-            </p>
+            </p> */}
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -137,7 +137,7 @@ const About = () => {
                 ))}
               </div>
 
-              {/* Skills Preview */}
+              {/* Skills Preview
               <div className="flex flex-wrap gap-3">
                 {[
                   "React",
@@ -154,7 +154,7 @@ const About = () => {
                     {skill}
                   </span>
                 ))}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

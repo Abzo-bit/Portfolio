@@ -10,7 +10,7 @@ const Projects = () => {
       title: 'WhatsApp Clone',
       description: 'Application de messagerie instantanée avec interface moderne et fonctionnalités avancées. Communication en temps réel, notifications push et interface responsive.',
       technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
-      image: process.env.PUBLIC_URL + '/assets/images/whatsapp.png',
+      image: process.env.PUBLIC_URL + '/assets/images/whatsapp2.png',
       github: 'https://github.com',
       demo: 'https://demo.com',
       category: 'Full Stack',
@@ -19,7 +19,7 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: 'Maxit Game',
+      title: 'Maxit Orange',
       description: 'Jeu de stratégie en ligne avec intelligence artificielle et multijoueur. Interface interactive avec animations fluides et scoring en temps réel.',
       technologies: ['JavaScript', 'HTML5 Canvas', 'CSS3', 'WebSockets'],
       image: process.env.PUBLIC_URL + '/assets/images/Maxit.png',

@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaWhatsapp, FaPaperPlane, FaCheck } from 'react-icons/fa';
+import React, { useState } from "react";
+import {
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaGithub,
+  FaLinkedin,
+  FaWhatsapp,
+  FaPaperPlane,
+  FaCheck,
+} from "react-icons/fa";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -14,7 +23,7 @@ const Contact = () => {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -23,7 +32,7 @@ const Contact = () => {
     setIsSubmitting(true);
 
     // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
 
     setIsSubmitting(false);
     setIsSubmitted(true);
@@ -31,57 +40,60 @@ const Contact = () => {
     // Reset form after 3 seconds
     setTimeout(() => {
       setIsSubmitted(false);
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      setFormData({ name: "", email: "", subject: "", message: "" });
     }, 3000);
   };
 
   const contactInfo = [
     {
       icon: <FaEnvelope className="w-6 h-6" />,
-      title: 'Email',
-      value: 'abzo.dev@example.com',
-      href: 'mailto:abzo.dev@example.com',
-      color: 'from-blue-500 to-cyan-500'
+      title: "Email",
+      value: "diengabzo@gmail.com",
+      href: "mailto:abzo.diengabzo@gmail.com",
+      color: "from-blue-500 to-cyan-500",
     },
     {
       icon: <FaPhone className="w-6 h-6" />,
-      title: 'Téléphone',
-      value: '+33 1 23 45 67 89',
-      href: 'tel:+33123456789',
-      color: 'from-green-500 to-emerald-500'
+      title: "Téléphone",
+      value: "+221 78 547 45 53",
+      href: "tel:+33123456789",
+      color: "from-green-500 to-emerald-500",
     },
     {
       icon: <FaMapMarkerAlt className="w-6 h-6" />,
-      title: 'Localisation',
-      value: 'Paris, France',
-      href: '#',
-      color: 'from-purple-500 to-pink-500'
-    }
+      title: "Localisation",
+      value: "Dakar, Senegal",
+      href: "#",
+      color: "from-purple-500 to-pink-500",
+    },
   ];
 
   const socialLinks = [
     {
-      name: 'GitHub',
+      name: "GitHub",
       icon: <FaGithub className="w-6 h-6" />,
-      url: 'https://github.com',
-      color: 'hover:text-gray-900 dark:hover:text-white'
+      url: "https://github.com/Abzo-tech",
+      color: "hover:text-gray-900 dark:hover:text-white",
     },
     {
-      name: 'LinkedIn',
+      name: "LinkedIn",
       icon: <FaLinkedin className="w-6 h-6" />,
-      url: 'https://linkedin.com',
-      color: 'hover:text-blue-600'
+      url: "https://www.linkedin.com/in/aboubakry-dieng-251163285/",
+      color: "hover:text-blue-600",
     },
     {
-      name: 'WhatsApp',
+      name: "WhatsApp",
       icon: <FaWhatsapp className="w-6 h-6" />,
-      url: 'https://wa.me/1234567890',
-      color: 'hover:text-green-500'
-    }
+      url: "https://wa.me/+221785474553",
+      color: "hover:text-green-500",
+    },
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
+    <section
+      id="contact"
+      className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden"
+    >
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 right-20 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl"></div>
@@ -96,14 +108,15 @@ const Contact = () => {
             </span>
 
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              Restons en{' '}
+              Restons en{" "}
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Contact
               </span>
             </h2>
 
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              N'hésitez pas à me contacter pour vos projets ou collaborations. Je suis toujours ouvert aux nouvelles opportunités !
+              N'hésitez pas à me contacter pour vos projets ou collaborations.
+              Je suis toujours ouvert aux nouvelles opportunités !
             </p>
           </div>
 
@@ -122,7 +135,9 @@ const Contact = () => {
                       href={info.href}
                       className="flex items-center p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200/50 dark:border-gray-700/50 group"
                     >
-                      <div className={`w-12 h-12 bg-gradient-to-r ${info.color} rounded-xl flex items-center justify-center text-white mr-4 group-hover:scale-110 transition-transform duration-300`}>
+                      <div
+                        className={`w-12 h-12 bg-gradient-to-r ${info.color} rounded-xl flex items-center justify-center text-white mr-4 group-hover:scale-110 transition-transform duration-300`}
+                      >
                         {info.icon}
                       </div>
                       <div>
@@ -181,7 +196,10 @@ const Contact = () => {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                        <label
+                          htmlFor="name"
+                          className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                        >
                           Nom complet *
                         </label>
                         <div className="relative">
@@ -200,7 +218,10 @@ const Contact = () => {
                       </div>
 
                       <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                        <label
+                          htmlFor="email"
+                          className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                        >
                           Email *
                         </label>
                         <div className="relative">
@@ -220,7 +241,10 @@ const Contact = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      <label
+                        htmlFor="subject"
+                        className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                      >
                         Sujet *
                       </label>
                       <div className="relative">
@@ -239,7 +263,10 @@ const Contact = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      <label
+                        htmlFor="message"
+                        className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                      >
                         Message *
                       </label>
                       <div className="relative">
@@ -260,8 +287,8 @@ const Contact = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className={`w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 ${
-                        isSubmitting ? 'cursor-not-allowed opacity-75' : ''
+                      className={`w-full bg-blue-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 ${
+                        isSubmitting ? "cursor-not-allowed opacity-75" : ""
                       }`}
                     >
                       {isSubmitting ? (
@@ -286,7 +313,8 @@ const Contact = () => {
                       Message envoyé !
                     </h3>
                     <p className="text-gray-600 dark:text-gray-300">
-                      Merci pour votre message. Je vous répondrai dans les plus brefs délais.
+                      Merci pour votre message. Je vous répondrai dans les plus
+                      brefs délais.
                     </p>
                   </div>
                 )}

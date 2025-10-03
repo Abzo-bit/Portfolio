@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 const Header = ({ darkMode, setDarkMode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -48,11 +48,11 @@ const Header = ({ darkMode, setDarkMode }) => {
             className="flex items-center space-x-2 cursor-pointer"
             onClick={() => scrollToSection("home")}
           >
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">A</span>
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              ABZO
+            <span className="text-2xl font-bold text-blue-600">
+              Aboubakry Dieng
             </span>
           </div>
 
@@ -65,7 +65,7 @@ const Header = ({ darkMode, setDarkMode }) => {
                 className="relative text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
               >
                 {item.name}
-                <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full" />
+                <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-blue-500 rounded-full" />
               </button>
             ))}
           </div>
@@ -105,7 +105,7 @@ const Header = ({ darkMode, setDarkMode }) => {
             <a
               href="/Aboubakry_Dieng.pdf"
               download="Aboubakry_Dieng_CV.pdf"
-              className="hidden sm:block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2.5 rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
+              className="hidden sm:block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               Télécharger CV
             </a>

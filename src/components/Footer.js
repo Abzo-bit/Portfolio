@@ -27,13 +27,13 @@ const Footer = () => {
     {
       name: "GitHub",
       icon: <FaGithub className="w-5 h-5" />,
-      url: "https://github.com",
+      url: "https://github.com/Abzo-tech",
       color: "hover:text-gray-400",
     },
     {
       name: "LinkedIn",
       icon: <FaLinkedin className="w-5 h-5" />,
-      url: "https://www.linkedin.com/feed/",
+      url: "https://www.linkedin.com/in/aboubakry-dieng-251163285/",
       color: "hover:text-blue-500",
     },
     {
@@ -45,7 +45,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
+    <footer className="bg-gray-900 text-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
@@ -58,12 +58,12 @@ const Footer = () => {
             {/* Brand Section */}
             <div className="lg:col-span-2">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center">
                   <FaCode className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                    ABZO
+                  <h3 className="text-2xl font-bold text-blue-400">
+                    Aboubakry Dieng
                   </h3>
                   <p className="text-gray-400 text-sm">Développeur Full Stack</p>
                 </div>
@@ -113,12 +113,6 @@ const Footer = () => {
                 <li className="hover:text-blue-400 transition-colors duration-200 cursor-pointer">
                   API & Backend
                 </li>
-                <li className="hover:text-blue-400 transition-colors duration-200 cursor-pointer">
-                  Consulting Technique
-                </li>
-                <li className="hover:text-blue-400 transition-colors duration-200 cursor-pointer">
-                  Maintenance & Support
-                </li>
                 <li>
                   <a
                     href="/Aboubakry_Dieng.pdf"
@@ -139,7 +133,7 @@ const Footer = () => {
           {/* Bottom Section */}
           <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
             <div className="flex items-center space-x-2 text-gray-400 text-sm">
-              <span>&copy; {currentYear} ABZO. Tous droits réservés.</span>
+              <span>&copy; {currentYear} Aboubakry. Tous droits réservés.</span>
               <span className="flex items-center">
                 Fait avec <FaHeart className="w-4 h-4 text-red-500 mx-1" /> et passion
               </span>
