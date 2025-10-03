@@ -102,13 +102,6 @@ const Projects = () => {
               Mes Projets
             </span>
 
-            {/* <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              Portfolio &{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Réalisations
-              </span>
-            </h2> */}
-
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Découvrez quelques-uns de mes projets les plus récents et les plus aboutis
             </p>
