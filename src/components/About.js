@@ -25,19 +25,6 @@ const About = () => {
             <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium mb-4">
               À propos de moi
             </span>
-{/* 
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              Passionné par le{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Développement
-              </span>
-            </h2>
-
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Avec une solide expérience dans le développement web, je maîtrise
-              les technologies modernes pour créer des applications performantes
-              et intuitives.
-            </p> */}
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -136,25 +123,6 @@ const About = () => {
                   </div>
                 ))}
               </div>
-
-              {/* Skills Preview
-              <div className="flex flex-wrap gap-3">
-                {[
-                  "React",
-                  "Node.js",
-                  "TypeScript",
-                  "MongoDB",
-                  "AWS",
-                  "Docker",
-                ].map((skill, index) => (
-                  <span
-                    key={skill}
-                    className="px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium border border-blue-200/50 dark:border-blue-800/50"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div> */}
             </div>
           </div>
         </div>

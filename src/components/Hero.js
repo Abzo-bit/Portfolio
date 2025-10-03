@@ -66,7 +66,7 @@ const Hero = () => {
             <div className="text-center lg:text-left">
               <h1 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
                 {" "}
-                <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+                <span className="bg-blue-500 bg-clip-text text-transparent">
                   Aboubakry DIENG
                 </span>
               </h1>
@@ -84,17 +84,18 @@ const Hero = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <button
                   onClick={() => scrollToSection("projects")}
-                  className="group relative  border-2 border-blue-600 hover:from-blue-700 text-blue-600 px-8 py-4 rounded-2xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl overflow-hidden"
+                  className="group relative border-2 border-blue-600 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white px-8 py-4 rounded-2xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl overflow-hidden"
                 >
-                  <span className="relative z-10">Voir mes projets</span>
-                  <div className="absolute inset-0 bg-blue-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <span className="relative z-10">
+                    Voir mes projets
+                  </span>
                 </button>
 
                 <a
                   href="https://wa.me/+221785474553"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative border-2 border-blue-600 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white px-8 py-4 rounded-2xl text-lg font-semibold transition-all duration-300"
+                  className="group relative border-2 border-blue-600 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white px-8 py-4 rounded-2xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl overflow-hidden"
                 >
                   <span className="relative z-10">
                     💬 Discuter sur WhatsApp

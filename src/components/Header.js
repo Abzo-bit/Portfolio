@@ -51,7 +51,7 @@ const Header = ({ darkMode, setDarkMode }) => {
             <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">A</span>
             </div>
-            <span className="text-2xl font-bold text-blue-600">
+            <span className="text-3xl font-bold text-blue-600">
               Aboubakry Dieng
             </span>
           </div>
