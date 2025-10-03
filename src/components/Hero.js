@@ -53,7 +53,8 @@ const Hero = () => {
       className="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden"
     >
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      <div className="absolute inset-0" style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/assets/images/abzo2.png)`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-white/80 to-purple-50/80 dark:from-gray-900/80 dark:via-gray-800/80 dark:to-gray-900/80"></div>
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-400/5 to-purple-400/5 rounded-full blur-3xl"></div>
@@ -123,13 +124,13 @@ const Hero = () => {
             <div className="flex justify-center lg:justify-end">
               <div className="relative">
                 {/* Background Glow */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-purple-600 rounded-3xl blur-2xl opacity-20"></div>
+                <div className="absolute -inset-4 bg-blue-400 rounded-3xl blur-2xl opacity-20"></div>
 
                 {/* Main Image Container */}
-                <div className="relative w-80 h-80 rounded-3xl overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100 dark:from-gray-800 dark:to-gray-700 p-2">
+                <div className="relative w-80 h-96 rounded-3xl overflow-hidden bg-blue-100  dark:from-gray-800 dark:to-gray-700 p-2">
                   <div className="w-full h-full rounded-2xl overflow-hidden bg-white dark:bg-gray-900">
                     <img
-                      src={process.env.PUBLIC_URL + "/assets/images/abzo.png"}
+                      src={process.env.PUBLIC_URL + "/assets/images/abzo2.png"}
                       alt="Aboubakry Dieng - Développeur Full Stack"
                       className="w-full h-full object-cover"
                       onError={(e) => {
@@ -137,7 +138,7 @@ const Hero = () => {
                         // Fallback to gradient if image fails to load
                         e.target.style.display = "none";
                         e.target.parentElement.innerHTML =
-                          '<div class="w-full h-full bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center text-white text-6xl font-bold">AD</div>';
+                          '<div class="w-full h-full bg-gblue-400  flex items-center justify-center text-white text-6xl font-bold">AD</div>';
                       }}
                       onLoad={(e) => {
                         console.log("Image loaded successfully:", e.target.src);
@@ -147,7 +148,7 @@ const Hero = () => {
                 </div>
 
                 {/* Floating Elements */}
-                <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center text-white shadow-lg">
+                <div className="absolute -top-4 -right-4 w-16 h-16 bg-blue-500  rounded-2xl flex items-center justify-center text-white shadow-lg">
                   <svg
                     className="w-8 h-8"
                     fill="none"
@@ -163,7 +164,7 @@ const Hero = () => {
                   </svg>
                 </div>
 
-                <div className="absolute -bottom-4 -left-4 w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center text-white shadow-lg">
+                <div className="absolute -bottom-4 -left-4 w-14 h-14 bg-blue-500  rounded-2xl flex items-center justify-center text-white shadow-lg">
                   <svg
                     className="w-7 h-7"
                     fill="none"

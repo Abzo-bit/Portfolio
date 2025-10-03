@@ -235,7 +235,7 @@ const Skills = () => {
                         key={star}
                         className={`w-2 h-2 rounded-full ${
                           star <= Math.ceil(skill.level / 20)
-                            ? 'bg-gradient-to-r from-blue-500 to-purple-600'
+                            ? 'bg--blue-500 '
                             : 'bg-gray-300 dark:bg-gray-600'
                         }`}
                       />
@@ -248,13 +248,6 @@ const Skills = () => {
               </div>
             ))}
           </div>
-
-          {/* Call to Action */}
-          {/* <div className="text-center mt-16">
-            <button className="bg-blue-600 hover:bg-blue-800 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300">
-              Découvrir mes projets →
-            </button>
-          </div> */}
         </div>
       </div>
     </section>

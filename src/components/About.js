@@ -35,30 +35,31 @@ const About = () => {
                 <div className="absolute -inset-6 bg-gradient-to-r from-blue-400 to-purple-600 rounded-3xl blur-2xl opacity-20"></div>
 
                 {/* Main Image Container */}
-                <div className="relative w-96 h-96 rounded-3xl overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100 dark:from-gray-800 dark:to-gray-700 p-3">
-                  <div className="w-full h-full rounded-2xl overflow-hidden bg-white dark:bg-gray-900 shadow-2xl">
+                <div className="relative w-80 h-96 rounded-6xl overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100 dark:from-gray-800 dark:to-blue-900 p-4">
+                  <div className="w-full h-[80%] rounded-2xl overflow-hidden bg-white dark:bg-gray-900 shadow-2xl">
                     <img
-                      src={process.env.PUBLIC_URL + "/assets/images/abzo.png"}
+                      src={process.env.PUBLIC_URL + "/assets/images/abzo2.png"}
                       alt="ABZO - Développeur Full Stack"
+                      eee
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                       onError={(e) => {
                         console.log("Image failed to load:", e.target.src);
                         // Fallback to gradient with initials if image fails to load
                         e.target.style.display = "none";
                         e.target.parentElement.innerHTML =
-                          '<div class="w-full h-full bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center text-white text-8xl font-bold">AB</div>';
+                          '<div class="w-full h-full bg- from-blue-400flex items-center justify-center text-white text-8xl font-bold">AB</div>';
                       }}
                     />
                   </div>
                 </div>
 
                 {/* Floating Badge */}
-                <div className="absolute -top-4 -right-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-2 rounded-2xl text-sm font-semibold shadow-lg">
+                <div className="absolute -top-4 -right-4 bg-blue-500 text-white px-4 py-2 rounded-2xl text-sm font-semibold shadow-lg">
                   Full Stack Dev
                 </div>
 
                 {/* Decorative Elements */}
-                <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-600 rounded-2xl flex items-center justify-center text-white shadow-lg opacity-80">
+                <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-blue-400 rounded-2xl flex items-center justify-center text-white shadow-lg opacity-70">
                   <svg
                     className="w-10 h-10"
                     fill="none"

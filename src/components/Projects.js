@@ -94,7 +94,10 @@ const Projects = () => {
   const featuredProjects = projects.filter(project => project.featured);
 
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-gray-800 relative overflow-hidden">
+    <section
+      id="projects"
+      className="py-20 bg-white dark:bg-gray-800 relative overflow-hidden"
+    >
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-800 dark:to-gray-900">
         <div className="absolute top-10 left-10 w-80 h-80 bg-blue-400/5 rounded-full blur-3xl"></div>
@@ -109,12 +112,13 @@ const Projects = () => {
             </span>
 
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Découvrez quelques-uns de mes projets les plus récents et les plus aboutis
+              Découvrez quelques-uns de mes projets les plus récents et les plus
+              aboutis
             </p>
           </div>
 
           {/* Featured Projects */}
-          {activeFilter === 'All' && (
+          {activeFilter === "All" && (
             <div className="mb-16">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
                 Projets en Vedette
@@ -135,22 +139,34 @@ const Projects = () => {
 
                     {/* Image Container */}
                     <div className="relative h-48 overflow-hidden">
-                      <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-90`}></div>
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-90`}
+                      ></div>
                       <img
                         src={project.image}
                         alt={project.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                         onError={(e) => {
-                          console.log('Project image failed to load:', e.target.src);
-                          e.target.style.display = 'none';
+                          console.log(
+                            "Project image failed to load:",
+                            e.target.src
+                          );
+                          e.target.style.display = "none";
                           e.target.parentElement.innerHTML = `
-                            <div class="w-full h-full bg-gradient-to-br ${project.gradient} flex items-center justify-center">
-                              <div class="text-white text-6xl font-bold">${project.title.charAt(0)}</div>
+                            <div class="w-full h-full bg-gradient-to-br ${
+                              project.gradient
+                            } flex items-center justify-center">
+                              <div class="text-white text-6xl font-bold">${project.title.charAt(
+                                0
+                              )}</div>
                             </div>
                           `;
                         }}
                         onLoad={(e) => {
-                          console.log('Project image loaded successfully:', e.target.src);
+                          console.log(
+                            "Project image loaded successfully:",
+                            e.target.src
+                          );
                         }}
                       />
 
@@ -223,7 +239,7 @@ const Projects = () => {
                           href={project.demo}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center py-2 px-4 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 flex items-center justify-center gap-2 text-sm font-medium shadow-lg"
+                          className="flex-1 bg-blue-600  text-white text-center py-2 px-4 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 flex items-center justify-center gap-2 text-sm font-medium shadow-lg"
                         >
                           <FaExternalLinkAlt className="w-4 h-4" />
                           Demo
@@ -245,8 +261,8 @@ const Projects = () => {
                   onClick={() => setActiveFilter(category)}
                   className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
                     activeFilter === category
-                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
-                      : 'text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white dark:hover:bg-gray-600'
+                      ? "bg-gradient-to-r from-blue-600  text-white shadow-lg"
+                      : "text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white dark:hover:bg-gray-600"
                   }`}
                 >
                   {category}
@@ -264,22 +280,34 @@ const Projects = () => {
               >
                 {/* Image Container */}
                 <div className="relative h-48 overflow-hidden">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-80`}></div>
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-80`}
+                  ></div>
                   <img
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     onError={(e) => {
-                      console.log('Project image failed to load:', e.target.src);
-                      e.target.style.display = 'none';
+                      console.log(
+                        "Project image failed to load:",
+                        e.target.src
+                      );
+                      e.target.style.display = "none";
                       e.target.parentElement.innerHTML = `
-                        <div class="w-full h-full bg-gradient-to-br ${project.gradient} flex items-center justify-center">
-                          <div class="text-white text-4xl font-bold">${project.title.charAt(0)}</div>
+                        <div class="w-full h-full bg-gradient-to-br ${
+                          project.gradient
+                        } flex items-center justify-center">
+                          <div class="text-white text-4xl font-bold">${project.title.charAt(
+                            0
+                          )}</div>
                         </div>
                       `;
                     }}
                     onLoad={(e) => {
-                      console.log('Project image loaded successfully:', e.target.src);
+                      console.log(
+                        "Project image loaded successfully:",
+                        e.target.src
+                      );
                     }}
                   />
 
@@ -331,7 +359,7 @@ const Projects = () => {
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center py-2 px-4 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 flex items-center justify-center gap-2 text-sm"
+                      className="flex-1 bg-gradient-to-r from-blue-600 text-white text-center py-2 px-4 rounded-lg hover:from-blue-700 hover:to-blue-700 transition-all duration-300 flex items-center justify-center gap-2 text-sm"
                     >
                       <FaExternalLinkAlt className="w-4 h-4" />
                       Demo
