@@ -35,8 +35,8 @@ const About = () => {
                 <div className="absolute -inset-6 bg-gradient-to-r from-blue-400 to-purple-600 rounded-3xl blur-2xl opacity-20"></div>
 
                 {/* Main Image Container */}
-                <div className="relative w-80 h-96 rounded-6xl overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100 dark:from-gray-800 dark:to-blue-900 p-4">
-                  <div className="w-full h-[80%] rounded-2xl overflow-hidden bg-white dark:bg-gray-900 shadow-2xl">
+                <div className="relative w-80 h-90 rounded-2xl overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100 dark:from-gray-800 dark:to-blue-900 p-4">
+                  <div className="w-full h-full rounded-2xl overflow-hidden bg-white dark:bg-gray-900 shadow-2xl">
                     <img
                       src={process.env.PUBLIC_URL + "/assets/images/abzo2.png"}
                       alt="ABZO - Développeur Full Stack"
