@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const Header = ({ darkMode, setDarkMode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,6 +14,18 @@ const Header = ({ darkMode, setDarkMode }) => {
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
+  };
+
+  const downloadBothCVs = () => {
+    const files = ["/Aboubakry_Dieng.pdf", "/CV-Aboubakry_Dieng.pdf"];
+    files.forEach((file) => {
+      const a = document.createElement("a");
+      a.href = file;
+      a.download = file.split("/").pop();
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    });
   };
 
   const scrollToSection = (sectionId) => {
@@ -102,13 +114,13 @@ const Header = ({ darkMode, setDarkMode }) => {
             </button>
 
             {/* CV Button */}
-            <a
-              href="/Aboubakry_Dieng.pdf"
-              download="Aboubakry_Dieng_CV.pdf"
-              className="hidden sm:block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
+            <button
+              onClick={downloadBothCVs}
+              className="hidden sm:inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
+              aria-label="Télécharger les deux CV"
             >
               Télécharger CV
-            </a>
+            </button>
 
             {/* Mobile Menu Button */}
             <button
@@ -163,8 +175,11 @@ const Header = ({ darkMode, setDarkMode }) => {
                 </button>
               ))}
               <a
-                href="/Aboubakry_Dieng.pdf"
-                download="Aboubakry_Dieng_CV.pdf"
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  downloadBothCVs();
+                }}
                 className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200 shadow-lg text-center mt-4"
               >
                 Télécharger CV
