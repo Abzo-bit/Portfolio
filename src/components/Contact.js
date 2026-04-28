@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import emailjs from '@emailjs/browser';
 import {
   FaEnvelope,
   FaPhone,
@@ -31,17 +32,34 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    try {
+      // Configuration EmailJS
+      const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+      const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('EmailJS configuration manquante. Veuillez configurer les variables d\'environnement.');
+      }
 
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_name: 'Aboubakry Dieng',
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+
+      setIsSubmitted(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 3000);
+    } catch (error) {
+      console.error('Erreur lors de l\'envoi du message:', error);
+      alert('Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer ou me contacter directement.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [

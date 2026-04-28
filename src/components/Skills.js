@@ -235,7 +235,7 @@ const Skills = () => {
                         key={star}
                         className={`w-2 h-2 rounded-full ${
                           star <= Math.ceil(skill.level / 20)
-                            ? 'bg--blue-500 '
+                            ? 'bg-blue-500'
                             : 'bg-gray-300 dark:bg-gray-600'
                         }`}
                       />

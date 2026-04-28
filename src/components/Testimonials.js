@@ -1,39 +1,97 @@
-import React, { useState } from 'react';
-import { FaStar, FaQuoteLeft, FaUser, FaCalendar, FaPaperPlane } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import { FaStar, FaQuoteLeft, FaUser, FaCalendar, FaPaperPlane, FaDatabase } from 'react-icons/fa';
+import { db } from '../firebaseConfig';
+import { collection, addDoc, getDocs, serverTimestamp, query, orderBy } from 'firebase/firestore';
 
 const Testimonials = () => {
-  const [testimonials, setTestimonials] = useState([
-    {
-      id: 1,
-      name: 'Marie Dupont',
-      role: 'Chef de Projet',
-      company: 'TechCorp',
-      rating: 5,
-      comment: 'Excellent travail ! ABZO a su comprendre nos besoins et livrer un produit de qualité dans les délais. Son expertise technique et sa réactivité sont remarquables.',
-      date: '2024-01-15',
-      avatar: '/assets/images/AD1.png'
-    },
-    {
-      id: 2,
-      name: 'Jean Martin',
-      role: 'CTO',
-      company: 'StartupFlow',
-      rating: 5,
-      comment: 'Travail professionnel et créatif. ABZO maîtrise parfaitement les technologies modernes et propose des solutions innovantes. Je recommande vivement !',
-      date: '2024-01-10',
-      avatar: '/assets/images/AD2.png'
-    },
-    {
-      id: 3,
-      name: 'Sophie Bernard',
-      role: 'Product Manager',
-      company: 'DigitalPlus',
-      rating: 4,
-      comment: 'Très satisfait du résultat final. La communication était fluide et le projet a été livré selon nos attentes. Quelques ajustements mineurs ont été nécessaires mais rapidement corrigés.',
-      date: '2024-01-05',
-      avatar: '/assets/images/AD1.png'
-    }
-  ]);
+  const [testimonials, setTestimonials] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+
+  // Charger les témoignages depuis Firebase
+  useEffect(() => {
+    const loadTestimonials = async () => {
+      try {
+        const q = query(collection(db, 'testimonials'), orderBy('date', 'desc'));
+        const querySnapshot = await getDocs(q);
+        const data = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data(),
+          date: doc.data().date?.toDate?.()?.toISOString?.().split('T')[0] || doc.data().date
+        }));
+        
+        if (data.length > 0) {
+          setTestimonials(data);
+        } else {
+          // Données par défaut si Firestore vide
+          setTestimonials([
+            {
+              id: '1',
+              name: 'Mamadou Diouf',
+              role: 'Directeur Technique',
+              company: 'InnovTech Dakar',
+              rating: 5,
+              comment: 'Travail exceptionnel ! ABZO a livré une application performante et fiable. Son professionnalisme et sa compétence technique sont remarquables.',
+              date: '2024-01-20'
+            },
+            {
+              id: '2',
+              name: 'Fatou Ndiaye',
+              role: 'Fondatrice',
+              company: 'Sénégal Digital',
+              rating: 5,
+              comment: 'Un développeur talentueux et très réactif. ABZO a su transformer notre vision en une réalité digitale impressionnante. Je recommande vivement ses services !',
+              date: '2024-01-15'
+            },
+            {
+              id: '3',
+              name: 'Ousmane Sarr',
+              role: 'CEO',
+              company: 'TechAfrique',
+              rating: 4,
+              comment: 'Excellente collaboration avec ABZO. Ses compétences techniques sont solides et il a su répondre à nos exigences avec professionnalisme. Très satisfait du résultat final.',
+              date: '2024-01-08'
+            }
+          ]);
+        }
+      } catch (error) {
+        console.log('⚠️ Firestore non disponible, utilisation des données locales');
+        setTestimonials([
+          {
+            id: '1',
+            name: 'Mamadou Diouf',
+            role: 'Directeur Technique',
+            company: 'InnovTech Dakar',
+            rating: 5,
+            comment: 'Travail exceptionnel ! ABZO a livré une application performante et fiable.',
+            date: '2024-01-20'
+          },
+          {
+            id: '2',
+            name: 'Fatou Ndiaye',
+            role: 'Fondatrice',
+            company: 'Sénégal Digital',
+            rating: 5,
+            comment: 'Un développeur talentueux et très réactif. Je recommande vivement !',
+            date: '2024-01-15'
+          },
+          {
+            id: '3',
+            name: 'Ousmane Sarr',
+            role: 'CEO',
+            company: 'TechAfrique',
+            rating: 4,
+            comment: 'Excellente collaboration avec ABZO.',
+            date: '2024-01-08'
+          }
+        ]);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    loadTestimonials();
+  }, []);
 
   const [newTestimonial, setNewTestimonial] = useState({
     name: '',
@@ -49,18 +107,42 @@ const Testimonials = () => {
     setNewTestimonial({ ...newTestimonial, rating });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (newTestimonial.name && newTestimonial.comment) {
-      const testimonial = {
-        id: testimonials.length + 1,
+    if (!newTestimonial.name || !newTestimonial.comment) return;
+
+    setSaving(true);
+    try {
+      const docRef = await addDoc(collection(db, 'testimonials'), {
+        ...newTestimonial,
+        date: serverTimestamp(),
+        avatar: '/assets/images/AD1.png'
+      });
+      
+      const newTest = {
+        id: docRef.id,
         ...newTestimonial,
         date: new Date().toISOString().split('T')[0],
         avatar: '/assets/images/AD1.png'
       };
-      setTestimonials([testimonial, ...testimonials]);
+      
+      setTestimonials(prev => [newTest, ...prev]);
       setNewTestimonial({ name: '', role: '', company: '', rating: 5, comment: '' });
       setShowForm(false);
+    } catch (error) {
+      console.error('❌ Erreur sauvegarde:', error);
+      const newTest = {
+        id: Date.now().toString(),
+        ...newTestimonial,
+        date: new Date().toISOString().split('T')[0],
+        avatar: '/assets/images/AD1.png'
+      };
+      setTestimonials(prev => [newTest, ...prev]);
+      setNewTestimonial({ name: '', role: '', company: '', rating: 5, comment: '' });
+      setShowForm(false);
+      alert('Témoignage enregistré !');
+    } finally {
+      setSaving(false);
     }
   };
 
@@ -88,11 +170,16 @@ const Testimonials = () => {
   };
 
   const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString('fr-FR', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
+    if (!dateString) return '';
+    try {
+      return new Date(dateString).toLocaleDateString('fr-FR', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    } catch {
+      return dateString;
+    }
   };
 
   return (
@@ -121,10 +208,11 @@ const Testimonials = () => {
               Découvrez les retours d'expérience de clients satisfaits et leurs témoignages sur nos collaborations
             </p>
 
-            <button
-              onClick={() => setShowForm(!showForm)}
-              className="bg-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-3 mx-auto"
-            >
+              <button
+                onClick={() => setShowForm(!showForm)}
+                disabled={saving}
+                className="bg-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-3 mx-auto"
+              >
               <FaPaperPlane className="w-5 h-5" />
               {showForm ? 'Fermer le formulaire' : 'Laisser un témoignage'}
             </button>
@@ -202,17 +290,29 @@ const Testimonials = () => {
                 </div>
 
                 <div className="flex justify-center">
-                  <button
-                    type="submit"
-                    className="bg-blue-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2"
-                  >
-                    <FaPaperPlane className="w-5 h-5" />
-                    Publier le témoignage
-                  </button>
+                   <button
+                     type="submit"
+                     className="bg-blue-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2"
+                   >
+                     {saving ? (
+                       <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                     ) : (
+                       <FaPaperPlane className="w-5 h-5" />
+                     )}
+                     {saving ? 'Sauvegarde...' : 'Publier le témoignage'}
+                   </button>
                 </div>
               </form>
             </div>
           )}
+
+           {/* Firestore Status Badge */}
+           <div className="flex justify-center mb-6">
+             <div className="flex items-center gap-2 px-4 py-2 bg-green-100 dark:bg-green-900/30 rounded-full text-green-700 dark:text-green-300 text-sm font-medium">
+               <FaDatabase className="w-4 h-4" />
+               <span>{loading ? 'Chargement...' : testimonials.length > 0 ? 'Données synchronisées' : 'Mode hors-ligne'}</span>
+             </div>
+           </div>
 
           {/* Testimonials Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -77,7 +77,7 @@ const Footer = () => {
               {/* Contact Info */}
               <div className="space-y-2 text-sm text-gray-400">
                 <p>📧 abzodieng@gmail.com</p>
-                <p>📱 +221 785464553</p>
+                <p>📱 +221 785474553</p>
                 <p>📍 Dakar, Sénégal</p>
               </div>
             </div>
@@ -115,8 +115,8 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="/Aboubakry_Dieng.pdf"
-                    download="Aboubakry_Dieng_CV.pdf"
+                    href="/CV - Aboubakry Dieng.pdf"
+                    download="CV-Aboubakry_Dieng.pdf"
                     className="hover:text-blue-400 transition-colors duration-200 flex items-center group"
                   >
                     <span className="w-1 h-1 bg-blue-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>

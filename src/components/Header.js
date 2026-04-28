@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Header = ({ darkMode, setDarkMode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,16 +17,14 @@ const Header = ({ darkMode, setDarkMode }) => {
     setDarkMode(!darkMode);
   };
 
-  const downloadBothCVs = () => {
-    const files = ["/Aboubakry_Dieng.pdf", "/CV-Aboubakry_Dieng.pdf"];
-    files.forEach((file) => {
-      const a = document.createElement("a");
-      a.href = file;
-      a.download = file.split("/").pop();
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-    });
+  const downloadCV = () => {
+    const file = "/CV - Aboubakry Dieng.pdf";
+    const a = document.createElement("a");
+    a.href = file;
+    a.download = "CV-Aboubakry_Dieng.pdf";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
   };
 
   const scrollToSection = (sectionId) => {
@@ -47,6 +46,7 @@ const Header = ({ darkMode, setDarkMode }) => {
 
   return (
     <header
+      role="banner"
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg"
@@ -106,7 +106,7 @@ const Header = ({ darkMode, setDarkMode }) => {
                 >
                   <path
                     fillRule="evenodd"
-                    d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                    d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM4 11a1 1 0 100-2H3a1 1 0 000 2h1zm1.05-6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm9.9 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
                     clipRule="evenodd"
                   />
                 </svg>
@@ -115,12 +115,17 @@ const Header = ({ darkMode, setDarkMode }) => {
 
             {/* CV Button */}
             <button
-              onClick={downloadBothCVs}
+              onClick={downloadCV}
               className="hidden sm:inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
-              aria-label="Télécharger les deux CV"
+              aria-label="Télécharger le CV"
             >
               Télécharger CV
             </button>
+
+            {/* Language Switcher for desktop */}
+            <div className="hidden sm:block">
+              <LanguageSwitcher />
+            </div>
 
             {/* Mobile Menu Button */}
             <button
@@ -164,7 +169,7 @@ const Header = ({ darkMode, setDarkMode }) => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="lg:hidden mt-4 pt-4 border-t border-gray-200 dark:border-gray-800">
-            <div className="flex flex-col space-y-3">
+            <div className="flex flex-col space-y-3" role="region" aria-label="Menu de navigation principal">
               {navItems.map((item, index) => (
                 <button
                   key={item.name}
@@ -174,16 +179,13 @@ const Header = ({ darkMode, setDarkMode }) => {
                   {item.name}
                 </button>
               ))}
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  downloadBothCVs();
-                }}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200 shadow-lg text-center mt-4"
+
+              <button
+                onClick={downloadCV}
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200 shadow-lg text-center mt-4 w-full"
               >
                 Télécharger CV
-              </a>
+              </button>
             </div>
           </div>
         )}

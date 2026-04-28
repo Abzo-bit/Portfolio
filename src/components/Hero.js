@@ -85,6 +85,7 @@ const Hero = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <button
                   onClick={() => scrollToSection("projects")}
+                  aria-label="Voir mes projets"
                   className="group relative border-2 border-blue-600 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white px-8 py-4 rounded-2xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl overflow-hidden"
                 >
                   <span className="relative z-10">
@@ -96,6 +97,7 @@ const Hero = () => {
                   href="https://wa.me/+221785474553"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Contacter via WhatsApp"
                   className="group relative border-2 border-blue-600 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white px-8 py-4 rounded-2xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl overflow-hidden"
                 >
                   <span className="relative z-10">
@@ -129,10 +131,10 @@ const Hero = () => {
                 {/* Main Image Container */}
                 <div className="relative w-80 h-96 rounded-3xl overflow-hidden bg-blue-100  dark:from-gray-800 dark:to-gray-700 p-2">
                   <div className="w-full h-full rounded-2xl overflow-hidden bg-white dark:bg-gray-900">
-                    <img
-                      src={process.env.PUBLIC_URL + "/assets/images/abzo2.png"}
-                      alt="Aboubakry Dieng - Développeur Full Stack"
-                      className="w-full h-full object-cover"
+                     <img
+                       src={process.env.PUBLIC_URL + "/assets/images/abzo2.png"}
+                       alt="Portrait professionnel d'Aboubakry Dieng, développeur Full Stack"
+                       className="w-full h-full object-cover"
                       onError={(e) => {
                         console.log("Image failed to load:", e.target.src);
                         // Fallback to gradient if image fails to load

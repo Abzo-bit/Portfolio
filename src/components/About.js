@@ -1,11 +1,13 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const About = () => {
+  const { t } = useTranslation();
   const stats = [
-    { number: 50, label: 'Projets réalisés', suffix: '+' },
-    { number: 5, label: 'Années d\'expérience', suffix: '+' },
-    { number: 100, label: 'Clients satisfaits', suffix: '%' },
-    { number: 24, label: 'Support disponible', suffix: '/7' }
+    { number: 6, label: t('stats_projects'), suffix: '+' },
+    { number: 1, label: t('stats_experience'), suffix: '+' },
+    { number: 38, label: t('stats_technologies'), suffix: '+' },
+    { number: 24, label: t('stats_support'), suffix: '/7' }
   ];
 
   return (
@@ -21,13 +23,13 @@ const About = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium mb-4">
-              À propos de moi
-            </span>
-          </div>
+           <div className="text-center mb-16">
+             <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium mb-4">
+               {t('about_title')}
+             </span>
+           </div>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Profile Image */}
             <div className="flex justify-center lg:justify-start">
               <div className="relative">
@@ -37,11 +39,10 @@ const About = () => {
                 {/* Main Image Container */}
                 <div className="relative w-80 h-90 rounded-2xl overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100 dark:from-gray-800 dark:to-blue-900 p-4">
                   <div className="w-full h-full rounded-2xl overflow-hidden bg-white dark:bg-gray-900 shadow-2xl">
-                    <img
-                      src={process.env.PUBLIC_URL + "/assets/images/abzo2.png"}
-                      alt="ABZO - Développeur Full Stack"
-                      eee
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                     <img
+                       src={process.env.PUBLIC_URL + "/assets/images/abzo2.png"}
+                       alt="Portrait professionnel d'Aboubakry Dieng posant dans son environnement de travail"
+                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                       onError={(e) => {
                         console.log("Image failed to load:", e.target.src);
                         // Fallback to gradient with initials if image fails to load
@@ -80,31 +81,23 @@ const About = () => {
             {/* Content */}
             <div className="space-y-8">
               <div>
-                <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                  Développeur Full Stack Passionné
-                </h3>
+               <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+                 {t('about_title')}
+               </h3>
 
-                <div className="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
-                  <p>
-                    Mon expertise couvre l'ensemble du cycle de développement,
-                    du concept à la production. Je suis spécialisé dans la
-                    création d'applications web modernes, performantes et
-                    centrées sur l'expérience utilisateur.
-                  </p>
+               <div className="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                 <p>
+                   {t('about_description_1')}
+                 </p>
 
-                  <p>
-                    Passionné par l'innovation technologique, je m'efforce
-                    constamment d'apprendre et de maîtriser les dernières
-                    technologies pour offrir des solutions de qualité supérieure
-                    à mes clients.
-                  </p>
+                 <p>
+                   {t('about_description_2')}
+                 </p>
 
-                  <p>
-                    Chaque projet est une nouvelle aventure où je peux combiner
-                    créativité technique et résolution de problèmes complexes
-                    pour créer des expériences digitales exceptionnelles.
-                  </p>
-                </div>
+                 <p>
+                   {t('about_description_3')}
+                 </p>
+               </div>
               </div>
 
               {/* Stats Grid */}
