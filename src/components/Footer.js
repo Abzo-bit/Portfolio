@@ -130,15 +130,13 @@ const Footer = () => {
                     API & Backend
                   </li>
                   <li>
-                    <a
-                      href="/cv"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <button
+                      onClick={() => window.open('/ABOUBAKRY_DIENG_CV.pdf', '_blank')}
                       className="hover:text-blue-400 transition-colors duration-200 flex items-center group"
                     >
                       <span className="w-1 h-1 bg-blue-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
                       {t('footer_download_cv')}
-                    </a>
+                    </button>
                   </li>
                 </ul>
               </div>
