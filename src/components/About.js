@@ -6,7 +6,7 @@ const About = () => {
   const stats = [
     { number: 6, label: t('stats_projects'), suffix: '+' },
     { number: 1, label: t('stats_experience'), suffix: '+' },
-    { number: 38, label: t('stats_technologies'), suffix: '+' },
+    { number: 34, label: t('stats_technologies'), suffix: '+' },
     { number: 24, label: t('stats_support'), suffix: '/7' }
   ];
 

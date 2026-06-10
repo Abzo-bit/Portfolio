@@ -1,64 +1,55 @@
 import React, { useState } from 'react';
-import { FaCode, FaDatabase, FaServer, FaMobile, FaCloud, FaShieldAlt } from 'react-icons/fa';
+import { FaCode, FaDatabase, FaServer, FaMobile, FaCloud, FaShieldAlt, FaPaintBrush, FaFileExcel } from 'react-icons/fa';
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState('All');
 
-  const categories = ['All', 'Frontend', 'Backend', 'Database', 'DevOps', 'Mobile'];
+  const categories = ['All', 'Frontend', 'Backend', 'Database', 'DevOps', 'Design & Productivity'];
 
   const skills = [
-    // Frontend
     { name: 'JavaScript', icon: <FaCode />, category: 'Frontend', level: 95 },
     { name: 'TypeScript', icon: <FaCode />, category: 'Frontend', level: 90 },
+    { name: 'HTML5', icon: <FaCode />, category: 'Frontend', level: 95 },
+    { name: 'CSS3', icon: <FaCode />, category: 'Frontend', level: 95 },
+    { name: 'Angular', icon: <FaCode />, category: 'Frontend', level: 85 },
+    { name: 'React', icon: <FaCode />, category: 'Frontend', level: 90 },
     { name: 'Next.js', icon: <FaCode />, category: 'Frontend', level: 85 },
-    { name: 'Vue.js', icon: <FaCode />, category: 'Frontend', level: 80 },
-    { name: 'Angular', icon: <FaCode />, category: 'Frontend', level: 75 },
-    { name: 'HTML5/CSS3', icon: <FaCode />, category: 'Frontend', level: 95 },
     { name: 'Tailwind CSS', icon: <FaCode />, category: 'Frontend', level: 90 },
-    { name: 'Sass/Scss', icon: <FaCode />, category: 'Frontend', level: 85 },
-    { name: 'Redux', icon: <FaCode />, category: 'Frontend', level: 85 },
-    { name: 'Context API', icon: <FaCode />, category: 'Frontend', level: 90 },
+    { name: 'Angular Material', icon: <FaCode />, category: 'Frontend', level: 80 },
+    { name: 'SCSS', icon: <FaCode />, category: 'Frontend', level: 85 },
+    { name: 'Responsive Design', icon: <FaCode />, category: 'Frontend', level: 95 },
 
-    // Backend
-    { name: 'Node.js', icon: <FaServer />, category: 'Backend', level: 95 },
-    { name: 'Express.js', icon: <FaServer />, category: 'Backend', level: 90 },
-    { name: 'Python', icon: <FaCode />, category: 'Backend', level: 85 },
-    { name: 'FastAPI', icon: <FaCode />, category: 'Backend', level: 80 },
-    { name: 'Java', icon: <FaCode />, category: 'Backend', level: 80 },
-    { name: 'Spring Boot', icon: <FaCode />, category: 'Backend', level: 75 },
-    { name: 'C#/.NET', icon: <FaCode />, category: 'Backend', level: 75 },
-    { name: 'PHP/Laravel', icon: <FaCode />, category: 'Backend', level: 90 },
-    { name: 'REST API', icon: <FaServer />, category: 'Backend', level: 95 },
-    { name: 'GraphQL', icon: <FaServer />, category: 'Backend', level: 85 },
-    { name: 'WebSocket/Socket.io', icon: <FaServer />, category: 'Backend', level: 90 },
+    { name: 'PHP', icon: <FaServer />, category: 'Backend', level: 90 },
+    { name: 'Node.js', icon: <FaServer />, category: 'Backend', level: 90 },
+    { name: 'Express.js', icon: <FaServer />, category: 'Backend', level: 85 },
+    { name: 'Laravel', icon: <FaServer />, category: 'Backend', level: 90 },
+    { name: 'API RESTful', icon: <FaServer />, category: 'Backend', level: 95 },
+    { name: 'Swagger/OpenAPI', icon: <FaServer />, category: 'Backend', level: 85 },
+    { name: 'Architecture MVC', icon: <FaServer />, category: 'Backend', level: 90 },
+    { name: 'Microservices', icon: <FaServer />, category: 'Backend', level: 85 },
+    { name: 'JWT', icon: <FaShieldAlt />, category: 'Backend', level: 90 },
 
-    // Database
-    { name: 'MongoDB', icon: <FaDatabase />, category: 'Database', level: 95 },
+    { name: 'MySQL', icon: <FaDatabase />, category: 'Database', level: 90 },
     { name: 'PostgreSQL', icon: <FaDatabase />, category: 'Database', level: 90 },
-    { name: 'MySQL/MariaDB', icon: <FaDatabase />, category: 'Database', level: 90 },
-    { name: 'Redis', icon: <FaDatabase />, category: 'Database', level: 85 },
+    { name: 'MongoDB', icon: <FaDatabase />, category: 'Database', level: 85 },
     { name: 'Prisma ORM', icon: <FaDatabase />, category: 'Database', level: 85 },
-    { name: 'TypeORM', icon: <FaDatabase />, category: 'Database', level: 80 },
-    { name: 'Firestore', icon: <FaDatabase />, category: 'Database', level: 85 },
 
-    // DevOps
-    { name: 'Docker', icon: <FaCloud />, category: 'DevOps', level: 90 },
-    { name: 'Kubernetes', icon: <FaCloud />, category: 'DevOps', level: 85 },
-    { name: 'AWS', icon: <FaCloud />, category: 'DevOps', level: 85 },
-    { name: 'Firebase', icon: <FaCloud />, category: 'DevOps', level: 90 },
-    { name: 'Vercel/Netlify', icon: <FaCloud />, category: 'DevOps', level: 90 },
-    { name: 'Linux/CI-CD', icon: <FaShieldAlt />, category: 'DevOps', level: 85 },
+    { name: 'Docker', icon: <FaCloud />, category: 'DevOps', level: 85 },
+    { name: 'Git', icon: <FaCloud />, category: 'DevOps', level: 95 },
+    { name: 'GitHub', icon: <FaCloud />, category: 'DevOps', level: 95 },
+    { name: 'AWS', icon: <FaCloud />, category: 'DevOps', level: 80 },
 
-    // Mobile
-    { name: 'React Native', icon: <FaMobile />, category: 'Mobile', level: 85 },
-    { name: 'Flutter', icon: <FaMobile />, category: 'Mobile', level: 90 },
-    { name: 'Dart', icon: <FaCode />, category: 'Mobile', level: 85 },
-    { name: 'Capacitor', icon: <FaMobile />, category: 'Mobile', level: 80 },
-    { name: 'PWA', icon: <FaMobile />, category: 'Mobile', level: 85 },
+    { name: 'Figma', icon: <FaPaintBrush />, category: 'Design & Productivity', level: 80 },
+    { name: 'Canva', icon: <FaPaintBrush />, category: 'Design & Productivity', level: 75 },
+    { name: 'Microsoft Excel', icon: <FaFileExcel />, category: 'Design & Productivity', level: 85 },
+
+    { name: 'Gestion des rôles', icon: <FaShieldAlt />, category: 'Security', level: 90 },
+    { name: 'Validation des données', icon: <FaShieldAlt />, category: 'Security', level: 90 },
+    { name: 'Sécurisation transactions', icon: <FaShieldAlt />, category: 'Security', level: 90 },
   ];
 
-  const filteredSkills = activeCategory === 'All' 
-    ? skills 
+  const filteredSkills = activeCategory === 'All'
+    ? skills
     : skills.filter(skill => skill.category === activeCategory);
 
   return (
@@ -66,7 +57,6 @@ const Skills = () => {
       id="skills"
       className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-[#0a0a0a] dark:to-gray-900 relative overflow-hidden"
     >
-      {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-10 right-10 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-10 left-10 w-80 h-80 bg-purple-400/10 rounded-full blur-3xl"></div>
@@ -88,7 +78,6 @@ const Skills = () => {
             </p>
           </div>
 
-          {/* Category Filter */}
           <div className="flex justify-center mb-12">
             <div className="flex flex-wrap justify-center gap-2 bg-gray-100 dark:bg-gray-800/50 p-2 rounded-2xl">
               {categories.map((category) => (
@@ -107,7 +96,6 @@ const Skills = () => {
             </div>
           </div>
 
-          {/* Skills Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredSkills.map((skill, index) => (
               <div
