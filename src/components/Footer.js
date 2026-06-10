@@ -131,33 +131,17 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      href="/CV - Aboubakry Dieng.pdf"
-                      download="CV-Aboubakry_Dieng.pdf"
+                      href="/ABOUBAKRY_DIENG_CV.pdf"
+                      download="ABOUBAKRY_DIENG_CV.pdf"
                       className="hover:text-blue-400 transition-colors duration-200 flex items-center group"
                     >
                       <span className="w-1 h-1 bg-blue-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
                       {t('footer_download_cv')}
                     </a>
                   </li>
-                <li className="hover:text-blue-400 transition-colors duration-200 cursor-pointer">
-                  Applications Mobile
-                </li>
-                <li className="hover:text-blue-400 transition-colors duration-200 cursor-pointer">
-                  API & Backend
-                </li>
-                <li>
-              <a
-                href="/CV - Aboubakry Dieng.pdf"
-                download="CV-Aboubakry_Dieng.pdf"
-                className="hover:text-blue-400 transition-colors duration-200 flex items-center group"
-              >
-                <span className="w-1 h-1 bg-blue-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
-                {t('footer_download_cv')}
-              </a>
-                </li>
-              </ul>
+                </ul>
+              </div>
             </div>
-          </div>
 
           {/* Divider */}
           <div className="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent mb-8" />

@@ -18,10 +18,10 @@ const Header = ({ darkMode, setDarkMode }) => {
   };
 
   const downloadCV = () => {
-    const file = "/CV - Aboubakry Dieng.pdf";
+    const file = "/ABOUBAKRY_DIENG_CV.pdf";
     const a = document.createElement("a");
     a.href = file;
-    a.download = "CV-Aboubakry_Dieng.pdf";
+    a.download = "ABOUBAKRY_DIENG_CV.pdf";
     document.body.appendChild(a);
     a.click();
     a.remove();
