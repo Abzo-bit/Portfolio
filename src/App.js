@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -10,6 +11,7 @@ import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import LanguageSwitcher from './components/LanguageSwitcher';
+import CV from './components/CV';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -46,24 +48,33 @@ function App() {
   }, [darkMode, i18n]);
 
   return (
+    <BrowserRouter>
       <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'bg-[#0a0a0a] text-white' : 'bg-gray-50 text-gray-900'}`}>
-      <div role="navigation" aria-label="Sélecteur de langue" className="fixed top-4 right-4 z-50 md:top-4 md:right-4 flex items-center">
-        <LanguageSwitcher />
-      </div>
+        <div role="navigation" aria-label="Sélecteur de langue" className="fixed top-4 right-4 z-50 md:top-4 md:right-4 flex items-center">
+          <LanguageSwitcher />
+        </div>
 
-      <div role="none">
-        <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+        <div role="none">
+          <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+        </div>
+        <main id="main-content">
+          <Routes>
+            <Route path="/" element={
+              <>
+                <Hero />
+                <About />
+                <Skills />
+                <Projects />
+                <Testimonials />
+                <Contact />
+              </>
+            } />
+            <Route path="/cv" element={<CV />} />
+          </Routes>
+        </main>
+        <Footer />
       </div>
-      <main id="main-content">
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Testimonials />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    </BrowserRouter>
   );
 }
 

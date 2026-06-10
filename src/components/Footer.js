@@ -131,7 +131,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      href="/ABOUBAKRY_DIENG_CV.pdf"
+                      href="/cv"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-blue-400 transition-colors duration-200 flex items-center group"
