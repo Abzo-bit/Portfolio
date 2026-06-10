@@ -12,7 +12,7 @@ const Projects = () => {
       title: "WhatsApp Clone",
       description:
         "Application de messagerie instantanée moderne avec fonctionnalités avancées. Communication en temps réel, notifications push et interface responsive.",
-      technologies: ["React", "Node.js", "Express.js", "Socket.io", "MongoDB", "Tailwind CSS", "JWT Authentication", "REST API", "Redux", "Axios"],
+      technologies: ["React", "Node.js", "Express.js", "MongoDB", "JWT", "REST API", "Tailwind CSS", "JavaScript"],
       image: process.env.PUBLIC_URL + "/assets/images/whatsapp-cover.png",
       github: "https://github.com/Abzo-bit/whatchat1-main",
       demo: "#",
@@ -25,7 +25,7 @@ const Projects = () => {
       title: "KaayJob",
       description:
         "Plateforme de recherche et mise en relation pour l'emploi. Application complète avec gestion des candidatures et recherche d'offres.",
-      technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "HTML/CSS", "Bootstrap", "jQuery", "REST API"],
+      technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "HTML5", "CSS3", "API RESTful", "Swagger/OpenAPI", "Architecture MVC"],
       image: process.env.PUBLIC_URL + "/assets/images/kaayjob-cover.png",
       github: "https://github.com/Abzo-tech/KaayJob",
       demo: "#",
@@ -38,7 +38,7 @@ const Projects = () => {
       title: "Senteranga App",
       description:
         "Application mobile de services avec intelligence artificielle. Interface moderne et fonctionnalités innovantes pour la communauté.",
-      technologies: ["Flutter", "Dart", "Firebase", "Machine Learning", "AI", "REST API", "Cloud Functions", "Authentication", "Push Notifications", "Realtime Database"],
+      technologies: ["Angular", "TypeScript", "API RESTful", "Responsive Design", "JWT"],
       image: process.env.PUBLIC_URL + "/assets/images/senteranga-cover.png",
       github: "https://github.com/Abzo-tech/Senteranga_app",
       demo: "#",
@@ -51,7 +51,7 @@ const Projects = () => {
       title: "OM-PAY",
       description:
         "Système de paiement mobile moderne. API sécurisée pour transactions financières avec interface utilisateur intuitive.",
-      technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "Dart", "Flutter", "API REST", "Stripe", "PayPal", "Redis"],
+      technologies: ["PHP", "Laravel", "MySQL", "Node.js", "Express.js", "API RESTful", "Microservices", "JWT", "Docker", "AWS"],
       image: process.env.PUBLIC_URL + "/assets/images/ompay-cover.png",
       github: "https://github.com/Abzo-tech/OM-PAY",
       demo: "#",
@@ -61,7 +61,7 @@ const Projects = () => {
     },
   ];
 
-  const categories = ['All', 'Full Stack', 'Mobile', 'Game'];
+  const categories = ['All', 'Full Stack', 'Mobile'];
 
   const filteredProjects = activeFilter === 'All'
     ? projects
