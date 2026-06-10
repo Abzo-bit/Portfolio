@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaCode, FaDatabase, FaServer, FaMobile, FaCloud, FaShieldAlt, FaPaintBrush, FaFileExcel } from 'react-icons/fa';
+import { FaCode, FaDatabase, FaServer, FaCloud, FaShieldAlt, FaPaintBrush, FaFileExcel } from 'react-icons/fa';
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState('All');
