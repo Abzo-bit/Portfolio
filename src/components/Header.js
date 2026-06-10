@@ -18,7 +18,7 @@ const Header = ({ darkMode, setDarkMode }) => {
   };
 
   const downloadCV = () => {
-    window.location.href = '/cv';
+    window.open('/ABOUBAKRY_DIENG_CV.pdf', '_blank');
   };
 
   const scrollToSection = (sectionId) => {
