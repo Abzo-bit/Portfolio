@@ -132,7 +132,8 @@ const Footer = () => {
                   <li>
                     <a
                       href="/ABOUBAKRY_DIENG_CV.pdf"
-                      download="ABOUBAKRY_DIENG_CV.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="hover:text-blue-400 transition-colors duration-200 flex items-center group"
                     >
                       <span className="w-1 h-1 bg-blue-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>

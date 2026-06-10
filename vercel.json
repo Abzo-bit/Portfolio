@@ -2,6 +2,15 @@
   "buildCommand": "npm run build:vercel",
   "outputDirectory": "build",
   "installCommand": "npm install --legacy-peer-deps",
+  "headers": [
+    {
+      "source": "/(.*).pdf",
+      "headers": [
+        { "key": "Content-Type", "value": "application/pdf" },
+        { "key": "Content-Disposition", "value": "inline" }
+      ]
+    }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
