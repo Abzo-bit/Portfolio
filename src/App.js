@@ -13,7 +13,7 @@ import LanguageSwitcher from './components/LanguageSwitcher';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   
   useEffect(() => {
     // Check for saved theme preference or default to dark mode
