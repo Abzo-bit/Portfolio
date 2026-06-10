@@ -12,8 +12,19 @@ const LanguageSwitcher = () => {
   };
 
   useEffect(() => {
-    document.documentElement.lang = i18n.language;
-  }, [i18n.language]);
+    // Force update when language changes
+    const handleLanguageChange = () => {
+      document.documentElement.lang = i18n.language;
+      // Force re-render by updating a data attribute
+      document.documentElement.setAttribute('data-lang', i18n.language);
+    };
+    
+    i18n.on('languageChanged', handleLanguageChange);
+    
+    return () => {
+      i18n.off('languageChanged', handleLanguageChange);
+    };
+  }, [i18n]);
 
   const getCurrentLanguage = () => {
     return i18n.language === 'fr' ? 'FR' : 'EN';

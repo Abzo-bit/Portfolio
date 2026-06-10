@@ -1,26 +1,35 @@
-import React from 'react';
-import { FaGithub, FaLinkedin, FaWhatsapp, FaHeart, FaArrowUp, FaCode } from 'react-icons/fa';
+import React from "react";
+import { useTranslation } from "react-i18next";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaWhatsapp,
+  FaHeart,
+  FaArrowUp,
+  FaCode,
+} from "react-icons/fa";
 
 const Footer = () => {
+  const { t } = useTranslation();
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { name: 'Accueil', href: 'home' },
-    { name: 'À propos', href: 'about' },
-    { name: 'Compétences', href: 'skills' },
-    { name: 'Projets', href: 'projects' },
-    { name: 'Contact', href: 'contact' }
+    { name: "Accueil", href: "home" },
+    { name: "À propos", href: "about" },
+    { name: "Compétences", href: "skills" },
+    { name: "Projets", href: "projects" },
+    { name: "Contact", href: "contact" },
   ];
 
   const socialLinks = [
@@ -45,7 +54,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 text-white relative overflow-hidden">
+    <footer className="bg-[#0a0a0a] text-white relative overflow-hidden border-t border-gray-800">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
@@ -65,18 +74,21 @@ const Footer = () => {
                   <h3 className="text-2xl font-bold text-blue-400">
                     Aboubakry Dieng
                   </h3>
-                  <p className="text-gray-400 text-sm">Développeur Full Stack</p>
+                  <p className="text-gray-400 text-sm">
+                    Développeur Full Stack
+                  </p>
                 </div>
               </div>
 
               <p className="text-gray-300 mb-6 leading-relaxed max-w-md">
-                Développeur Full Stack passionné par la création d'expériences web exceptionnelles.
-                Spécialisé dans les technologies modernes pour des solutions innovantes et performantes.
+                Développeur Full Stack passionné par la création d'expériences
+                web exceptionnelles. Spécialisé dans les technologies modernes
+                pour des solutions innovantes et performantes.
               </p>
 
               {/* Contact Info */}
               <div className="space-y-2 text-sm text-gray-400">
-                <p>📧 abzodieng@gmail.com</p>
+                <p>diengabzo@gmail.com</p>
                 <p>📱 +221 785474553</p>
                 <p>📍 Dakar, Sénégal</p>
               </div>
@@ -84,7 +96,9 @@ const Footer = () => {
 
             {/* Quick Links */}
             <div>
-              <h4 className="text-lg font-semibold mb-6 text-white">Navigation</h4>
+              <h4 className="text-lg font-semibold mb-6 text-white">
+                Navigation
+              </h4>
               <ul className="space-y-3">
                 {quickLinks.map((link, index) => (
                   <li key={link.name}>
@@ -102,11 +116,29 @@ const Footer = () => {
 
             {/* Services */}
             <div>
-              <h4 className="text-lg font-semibold mb-6 text-white">Services</h4>
+              <h4 className="text-lg font-semibold mb-6 text-white">
+                Services
+              </h4>
               <ul className="space-y-3 text-gray-400">
-                <li className="hover:text-blue-400 transition-colors duration-200 cursor-pointer">
-                  Développement Web
-                </li>
+                  <li className="hover:text-blue-400 transition-colors duration-200 cursor-pointer">
+                    Développement Web
+                  </li>
+                  <li className="hover:text-blue-400 transition-colors duration-200 cursor-pointer">
+                    Applications Mobile
+                  </li>
+                  <li className="hover:text-blue-400 transition-colors duration-200 cursor-pointer">
+                    API & Backend
+                  </li>
+                  <li>
+                    <a
+                      href="/CV - Aboubakry Dieng.pdf"
+                      download="CV-Aboubakry_Dieng.pdf"
+                      className="hover:text-blue-400 transition-colors duration-200 flex items-center group"
+                    >
+                      <span className="w-1 h-1 bg-blue-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
+                      {t('footer_download_cv')}
+                    </a>
+                  </li>
                 <li className="hover:text-blue-400 transition-colors duration-200 cursor-pointer">
                   Applications Mobile
                 </li>
@@ -114,14 +146,14 @@ const Footer = () => {
                   API & Backend
                 </li>
                 <li>
-                  <a
-                    href="/CV - Aboubakry Dieng.pdf"
-                    download="CV-Aboubakry_Dieng.pdf"
-                    className="hover:text-blue-400 transition-colors duration-200 flex items-center group"
-                  >
-                    <span className="w-1 h-1 bg-blue-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
-                    Télécharger CV
-                  </a>
+              <a
+                href="/CV - Aboubakry Dieng.pdf"
+                download="CV-Aboubakry_Dieng.pdf"
+                className="hover:text-blue-400 transition-colors duration-200 flex items-center group"
+              >
+                <span className="w-1 h-1 bg-blue-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
+                {t('footer_download_cv')}
+              </a>
                 </li>
               </ul>
             </div>
@@ -135,7 +167,8 @@ const Footer = () => {
             <div className="flex items-center space-x-2 text-gray-400 text-sm">
               <span>&copy; {currentYear} Aboubakry. Tous droits réservés.</span>
               <span className="flex items-center">
-                Fait avec <FaHeart className="w-4 h-4 text-red-500 mx-1" /> et passion
+                Fait avec <FaHeart className="w-4 h-4 text-red-500 mx-1" /> et
+                passion
               </span>
             </div>
 

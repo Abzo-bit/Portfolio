@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FaStar, FaQuoteLeft, FaUser, FaCalendar, FaPaperPlane, FaDatabase } from 'react-icons/fa';
 import { db } from '../firebaseConfig';
 import { collection, addDoc, getDocs, serverTimestamp, query, orderBy } from 'firebase/firestore';
 
 const Testimonials = () => {
+  const { t } = useTranslation();
   const [testimonials, setTestimonials] = useState([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -183,7 +185,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" className="py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
+    <section id="testimonials" className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-[#0a0a0a] relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
@@ -299,7 +301,7 @@ const Testimonials = () => {
                      ) : (
                        <FaPaperPlane className="w-5 h-5" />
                      )}
-                     {saving ? 'Sauvegarde...' : 'Publier le témoignage'}
+                     {saving ? 'Sauvegarde...' : t('testimonials_button')}
                    </button>
                 </div>
               </form>
@@ -368,42 +370,42 @@ const Testimonials = () => {
           </div>
 
           {/* Stats Section */}
-          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
-                {testimonials.length}
-              </div>
-              <div className="text-gray-600 dark:text-gray-300 font-medium">
-                Témoignages
-              </div>
-            </div>
+           <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
+             <div className="text-center">
+               <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+                 {testimonials.length}
+               </div>
+               <div className="text-gray-600 dark:text-gray-300 font-medium">
+                 {t('testimonials_total')}
+               </div>
+             </div>
 
-            <div className="text-center">
-              <div className="text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">
-                {Math.round(testimonials.reduce((acc, t) => acc + t.rating, 0) / testimonials.length)}
-              </div>
-              <div className="text-gray-600 dark:text-gray-300 font-medium">
-                Note moyenne
-              </div>
-            </div>
+             <div className="text-center">
+               <div className="text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">
+                 {Math.round(testimonials.reduce((acc, t) => acc + t.rating, 0) / testimonials.length)}
+               </div>
+               <div className="text-gray-600 dark:text-gray-300 font-medium">
+                 {t('testimonials_average')}
+               </div>
+             </div>
 
-            <div className="text-center">
-              <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">
-                100%
-              </div>
-              <div className="text-gray-600 dark:text-gray-300 font-medium">
-                Satisfaction
-              </div>
-            </div>
+             <div className="text-center">
+               <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">
+                 100%
+               </div>
+               <div className="text-gray-600 dark:text-gray-300 font-medium">
+                 {t('testimonials_satisfaction')}
+               </div>
+             </div>
 
-            <div className="text-center">
-              <div className="text-4xl font-bold text-orange-600 dark:text-orange-400 mb-2">
-                24h
-              </div>
-              <div className="text-gray-600 dark:text-gray-300 font-medium">
-                Support
-              </div>
-            </div>
+             <div className="text-center">
+               <div className="text-4xl font-bold text-orange-600 dark:text-orange-400 mb-2">
+                 24h
+               </div>
+               <div className="text-gray-600 dark:text-gray-300 font-medium">
+                 {t('testimonials_support')}
+               </div>
+             </div>
           </div>
         </div>
       </div>

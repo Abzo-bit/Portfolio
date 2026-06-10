@@ -1,166 +1,86 @@
 import React, { useState } from 'react';
-import {
-  FaHtml5,
-  FaCss3Alt,
-  FaJs,
-  FaReact,
-  FaNodeJs,
-  FaPhp,
-  FaLaravel,
-  FaBootstrap,
-  FaGitAlt,
-  FaDocker,
-  FaFigma,
-  FaTrello,
-  FaSitemap
-} from 'react-icons/fa';
-import {
-  SiTailwindcss,
-  SiExpress,
-  SiMongodb,
-  SiPostgresql
-} from 'react-icons/si';
+import { FaCode, FaDatabase, FaServer, FaMobile, FaCloud, FaShieldAlt, FaJava } from 'react-icons/fa';
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState('All');
 
-  const getProgressColor = (level) => {
-    if (level <= 30) return 'bg-red-500';
-    if (level <= 80) return 'bg-yellow-500';
-    return 'bg-green-500';
-  };
+  const categories = ['All', 'Frontend', 'Backend', 'Database', 'DevOps', 'Mobile'];
 
   const skills = [
-    {
-      name: 'HTML5',
-      level: 95,
-      category: 'Frontend',
-      icon: <FaHtml5 className="text-orange-500" />
-    },
-    {
-      name: 'CSS3',
-      level: 90,
-      category: 'Frontend',
-      icon: <FaCss3Alt className="text-blue-500" />
-    },
-    {
-      name: 'JavaScript',
-      level: 88,
-      category: 'Frontend',
-      icon: <FaJs className="text-yellow-500" />
-    },
-    {
-      name: 'React',
-      level: 85,
-      category: 'Frontend',
-      icon: <FaReact className="text-blue-400" />
-    },
-    {
-      name: 'Tailwind CSS',
-      level: 88,
-      category: 'Frontend',
-      icon: <SiTailwindcss className="text-teal-500" />
-    },
-    {
-      name: 'Bootstrap',
-      level: 85,
-      category: 'Frontend',
-      icon: <FaBootstrap className="text-purple-600" />
-    },
-    {
-      name: 'Node.js',
-      level: 82,
-      category: 'Backend',
-      icon: <FaNodeJs className="text-green-500" />
-    },
-    {
-      name: 'Express.js',
-      level: 80,
-      category: 'Backend',
-      icon: <SiExpress className="text-gray-600" />
-    },
-    {
-      name: 'PHP',
-      level: 78,
-      category: 'Backend',
-      icon: <FaPhp className="text-purple-500" />
-    },
-    {
-      name: 'Laravel',
-      level: 75,
-      category: 'Backend',
-      icon: <FaLaravel className="text-red-500" />
-    },
-    {
-      name: 'MongoDB',
-      level: 80,
-      category: 'Database',
-      icon: <SiMongodb className="text-green-600" />
-    },
-    {
-      name: 'PostgreSQL',
-      level: 75,
-      category: 'Database',
-      icon: <SiPostgresql className="text-blue-600" />
-    },
-    {
-      name: 'Git',
-      level: 90,
-      category: 'Tools',
-      icon: <FaGitAlt className="text-orange-600" />
-    },
-    {
-      name: 'Docker',
-      level: 75,
-      category: 'Tools',
-      icon: <FaDocker className="text-blue-600" />
-    },
-    {
-      name: 'Figma',
-      level: 80,
-      category: 'Design',
-      icon: <FaFigma className="text-purple-500" />
-    },
-    {
-      name: 'Trello',
-      level: 85,
-      category: 'Tools',
-      icon: <FaTrello className="text-blue-500" />
-    },
-    {
-      name: 'StarUML',
-      level: 78,
-      category: 'Design',
-      icon: <FaSitemap className="text-indigo-600" />
-    }
+    // Frontend
+    { name: 'JavaScript', icon: <FaCode />, category: 'Frontend', level: 95 },
+    { name: 'TypeScript', icon: <FaCode />, category: 'Frontend', level: 90 },
+    { name: 'Next.js', icon: <FaCode />, category: 'Frontend', level: 85 },
+    { name: 'Vue.js', icon: <FaCode />, category: 'Frontend', level: 80 },
+    { name: 'Angular', icon: <FaCode />, category: 'Frontend', level: 75 },
+    { name: 'HTML5/CSS3', icon: <FaCode />, category: 'Frontend', level: 95 },
+    { name: 'Tailwind CSS', icon: <FaCode />, category: 'Frontend', level: 90 },
+    { name: 'Sass/Scss', icon: <FaCode />, category: 'Frontend', level: 85 },
+    { name: 'Redux', icon: <FaCode />, category: 'Frontend', level: 85 },
+    { name: 'Context API', icon: <FaCode />, category: 'Frontend', level: 90 },
+
+    // Backend
+    { name: 'Node.js', icon: <FaServer />, category: 'Backend', level: 95 },
+    { name: 'Express.js', icon: <FaServer />, category: 'Backend', level: 90 },
+    { name: 'Python', icon: <FaCode />, category: 'Backend', level: 85 },
+    { name: 'FastAPI', icon: <FaCode />, category: 'Backend', level: 80 },
+    { name: 'Java', icon: <FaCode />, category: 'Backend', level: 80 },
+    { name: 'Spring Boot', icon: <FaCode />, category: 'Backend', level: 75 },
+    { name: 'C#/.NET', icon: <FaCode />, category: 'Backend', level: 75 },
+    { name: 'PHP/Laravel', icon: <FaCode />, category: 'Backend', level: 90 },
+    { name: 'REST API', icon: <FaServer />, category: 'Backend', level: 95 },
+    { name: 'GraphQL', icon: <FaServer />, category: 'Backend', level: 85 },
+    { name: 'WebSocket/Socket.io', icon: <FaServer />, category: 'Backend', level: 90 },
+
+    // Database
+    { name: 'MongoDB', icon: <FaDatabase />, category: 'Database', level: 95 },
+    { name: 'PostgreSQL', icon: <FaDatabase />, category: 'Database', level: 90 },
+    { name: 'MySQL/MariaDB', icon: <FaDatabase />, category: 'Database', level: 90 },
+    { name: 'Redis', icon: <FaDatabase />, category: 'Database', level: 85 },
+    { name: 'Prisma ORM', icon: <FaDatabase />, category: 'Database', level: 85 },
+    { name: 'TypeORM', icon: <FaDatabase />, category: 'Database', level: 80 },
+    { name: 'Firestore', icon: <FaDatabase />, category: 'Database', level: 85 },
+
+    // DevOps
+    { name: 'Docker', icon: <FaCloud />, category: 'DevOps', level: 90 },
+    { name: 'Kubernetes', icon: <FaCloud />, category: 'DevOps', level: 85 },
+    { name: 'AWS', icon: <FaCloud />, category: 'DevOps', level: 85 },
+    { name: 'Firebase', icon: <FaCloud />, category: 'DevOps', level: 90 },
+    { name: 'Vercel/Netlify', icon: <FaCloud />, category: 'DevOps', level: 90 },
+    { name: 'Linux/CI-CD', icon: <FaShieldAlt />, category: 'DevOps', level: 85 },
+
+    // Mobile
+    { name: 'React Native', icon: <FaMobile />, category: 'Mobile', level: 85 },
+    { name: 'Flutter', icon: <FaMobile />, category: 'Mobile', level: 90 },
+    { name: 'Dart', icon: <FaCode />, category: 'Mobile', level: 85 },
+    { name: 'Capacitor', icon: <FaMobile />, category: 'Mobile', level: 80 },
+    { name: 'PWA', icon: <FaMobile />, category: 'Mobile', level: 85 },
   ];
 
-  const categories = ['All', 'Frontend', 'Backend', 'Database', 'Tools', 'Design'];
-
-  const filteredSkills = activeCategory === 'All'
-    ? skills
+  const filteredSkills = activeCategory === 'All' 
+    ? skills 
     : skills.filter(skill => skill.category === activeCategory);
 
   return (
-    <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
+    <section
+      id="skills"
+      className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-[#0a0a0a] dark:to-gray-900 relative overflow-hidden"
+    >
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-10 right-10 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 left-10 w-80 h-80 bg-purple-400/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium mb-4">
-              Mes Compétences
+            <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium mb-4">
+              Compétences
             </span>
 
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              Technologies &{' '}
-              <span className="text-blue-600">
-                Outils
-              </span>
+              Technologies & Outils
             </h2>
 
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -170,15 +90,15 @@ const Skills = () => {
 
           {/* Category Filter */}
           <div className="flex justify-center mb-12">
-            <div className="flex flex-wrap gap-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-2 rounded-2xl shadow-lg">
-              {categories.map((category, index) => (
+            <div className="flex flex-wrap justify-center gap-2 bg-gray-100 dark:bg-gray-800/50 p-2 rounded-2xl">
+              {categories.map((category) => (
                 <button
                   key={category}
                   onClick={() => setActiveCategory(category)}
-                  className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                  className={`px-6 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
                     activeCategory === category
-                      ? 'bg-gradient-to-r from-blue-600  text-white shadow-lg'
-                      : 'text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700'
+                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                      : 'bg-white/50 dark:bg-gray-700/50 text-gray-600 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-700'
                   }`}
                 >
                   {category}
@@ -194,57 +114,30 @@ const Skills = () => {
                 key={skill.name}
                 className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200/50 dark:border-gray-700/50"
               >
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      {skill.icon}
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 dark:text-white text-lg">
-                        {skill.name}
-                      </h3>
-                      <span className="text-sm text-gray-500 dark:text-gray-400">
-                        {skill.category}
-                      </span>
-                    </div>
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white text-xl">
+                    {skill.icon}
                   </div>
-                  <div className="text-right">
-                    <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-200 bg-clip-text text-transparent">
-                      {skill.level}%
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                      {skill.name}
+                    </h3>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                      {skill.category}
                     </span>
                   </div>
                 </div>
 
-                {/* Progress Bar */}
-                <div className="relative">
-                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 overflow-hidden">
-                    <div
-                      className={`h-full ${getProgressColor(skill.level)} rounded-full relative`}
-                      style={{ width: `${skill.level}%` }}
-                    >
-                      <div className="absolute inset-0 bg-white/20 rounded-full animate-pulse"></div>
-                    </div>
-                  </div>
+                <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                  <div
+                    className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-500"
+                    style={{ width: `${skill.level}%` }}
+                  ></div>
                 </div>
 
-                {/* Skill Level Indicator */}
-                <div className="mt-3 flex justify-between items-center">
-                  <div className="flex space-x-1">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <div
-                        key={star}
-                        className={`w-2 h-2 rounded-full ${
-                          star <= Math.ceil(skill.level / 20)
-                            ? 'bg-blue-500'
-                            : 'bg-gray-300 dark:bg-gray-600'
-                        }`}
-                      />
-                    ))}
-                  </div>
-                  <span className="text-xs text-gray-500 dark:text-gray-400">
-                    {skill.level >= 90 ? 'Expert' : skill.level >= 75 ? 'Avancé' : 'Intermédiaire'}
-                  </span>
-                </div>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-right">
+                  {skill.level}%
+                </p>
               </div>
             ))}
           </div>

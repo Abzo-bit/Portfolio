@@ -13,7 +13,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="py-20 bg-white dark:bg-gray-800 relative overflow-hidden"
+      className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-[#0a0a0a] dark:to-gray-900 relative overflow-hidden"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-800 dark:to-gray-900">

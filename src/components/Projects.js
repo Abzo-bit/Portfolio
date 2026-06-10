@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FaGithub, FaExternalLinkAlt, FaCode, FaRocket } from 'react-icons/fa';
 
 const Projects = () => {
+  const { t } = useTranslation();
   const [activeFilter, setActiveFilter] = useState('All');
 
   const projects = [
@@ -70,7 +72,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="py-20 bg-white dark:bg-gray-800 relative overflow-hidden"
+      className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-[#0a0a0a] relative overflow-hidden"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-800 dark:to-gray-900">
@@ -81,14 +83,13 @@ const Projects = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium mb-4">
-              Mes Projets
-            </span>
+             <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium mb-4">
+               {t('projects_title')}
+             </span>
 
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Découvrez quelques-uns de mes projets les plus récents et les plus
-              aboutis
-            </p>
+             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+               {t('projects_description')}
+             </p>
           </div>
 
           {/* Featured Projects */}
@@ -105,10 +106,10 @@ const Projects = () => {
                   >
                     {/* Featured Badge */}
                     <div className="absolute top-4 left-4 z-20">
-                      <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
-                        <FaRocket className="w-3 h-3" />
-                        Featured
-                      </span>
+                       <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
+                         <FaRocket className="w-3 h-3" />
+                         {t('projects_featured')}
+                       </span>
                     </div>
 
                     {/* Image Container */}
@@ -209,15 +210,15 @@ const Projects = () => {
                           <FaCode className="w-4 h-4" />
                           Code
                         </a>
-                        <a
-                          href={project.demo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 bg-blue-600  text-white text-center py-2 px-4 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 flex items-center justify-center gap-2 text-sm font-medium shadow-lg"
-                        >
-                          <FaExternalLinkAlt className="w-4 h-4" />
-                          Demo
-                        </a>
+                     <a
+                       href={project.demo}
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       className="flex-1 bg-blue-600  text-white text-center py-2 px-4 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 flex items-center justify-center gap-2 text-sm font-medium shadow-lg"
+                     >
+                       <FaExternalLinkAlt className="w-4 h-4" />
+                       {t('projects_view_demo')}
+                     </a>
                       </div>
                     </div>
                   </div>
@@ -290,9 +291,9 @@ const Projects = () => {
 
                   {/* Category Badge */}
                   <div className="absolute top-4 right-4">
-                    <span className="bg-white/90 backdrop-blur-sm text-gray-900 px-3 py-1 rounded-full text-xs font-semibold">
-                      {project.category}
-                    </span>
+                     <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-xs font-medium">
+                       {project.category}
+                     </span>
                   </div>
                 </div>
 
@@ -320,15 +321,15 @@ const Projects = () => {
 
                   {/* Links */}
                   <div className="flex space-x-3">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 bg-gray-900 dark:bg-gray-800 text-white text-center py-2 px-4 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-700 transition-colors flex items-center justify-center gap-2 text-sm"
-                    >
-                      <FaCode className="w-4 h-4" />
-                      Code
-                    </a>
+                     <a
+                       href={project.github}
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       className="flex-1 bg-gray-900 dark:bg-gray-800 text-white text-center py-2 px-4 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-700 transition-colors flex items-center justify-center gap-2 text-sm"
+                     >
+                       <FaCode className="w-4 h-4" />
+                       {t('projects_view_code')}
+                     </a>
                     <a
                       href={project.demo}
                       target="_blank"
