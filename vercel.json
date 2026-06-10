@@ -12,6 +12,6 @@
     }
   ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/((?!.*\\.(?:pdf|jpg|jpeg|png|gif|svg|ico|json|txt|css|js|map|webmanifest)$).*)", "destination": "/index.html" }
   ]
 }
